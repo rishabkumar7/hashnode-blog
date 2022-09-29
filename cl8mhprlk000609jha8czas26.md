@@ -10,10 +10,10 @@ So I stayed in the cloud engineering role for almost two years before I got into
 %[https://twitter.com/rishabk7/status/1570769784790450179?s=20&t=4rTsG-7C8QKbxRbEH8nPYQ]
 
 So here are some key things I focussed on:
-- [SDLC & CI/CD](#sdlc-cicd)
-- [Version Control System](#version-control-system)
-- [IaC](#IaC - Infrastructure as Code)
-- [Configuration Management](#configurationmanagement)
+- SDLC & CI/CD
+- Version Control System
+- IaC
+- Configuration Management
 - [Monitoring](#monitoring)
 
 ## SDLC and CI/CD <a name="sdlc-cicd"></a>
