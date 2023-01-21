@@ -1,4 +1,4 @@
-## What is WSL and how to use it with VSCode
+# What is WSL and how to use it with VSCode
 
 Hello amazing people 👋
 
