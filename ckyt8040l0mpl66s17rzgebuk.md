@@ -1,4 +1,4 @@
-## What Is DevOps? What does a DevOps Engineer do?
+# What Is DevOps? What does a DevOps Engineer do?
 
 Hello Friends 👋🏾
 It's been a while that I wrote a blog, but starting 2022 strong, here is the first one for this year!
