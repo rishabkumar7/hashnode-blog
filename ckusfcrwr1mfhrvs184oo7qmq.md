@@ -1,4 +1,4 @@
-## Installing Grafana and serving via Nginx as reverse proxy
+# Installing Grafana and serving via Nginx as reverse proxy
 
 Hey Friends 👋
 
