@@ -1,4 +1,4 @@
-## Crypto Alerts via SMS using Twilio
+# Crypto Alerts via SMS using Twilio
 
 Sending text alerts so I don’t have to constantly monitor the Crypto!
 We all know how volatile the crypto has been, but I get anxious for checking it too often, hence I have built a sms alerting system that sends my crypto prices every morning.
