@@ -1,4 +1,4 @@
-## Linux commands I use as a Cloud and DevOps Engineer
+# Linux commands I use as a Cloud and DevOps Engineer
 
 Hey Friends, as we know that I am a huge advocate of **Linux** and I think it is important aspect if you are entering **Cloud Computing** or **DevOps**.
 I wanted to reflect back on some commonly used linux commands while my time as a Cloud and DevOps Engineer.
