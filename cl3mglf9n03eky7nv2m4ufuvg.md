@@ -1,4 +1,4 @@
-## Setting up terminal in macOS, installing ohmyzsh
+# Setting up terminal in macOS, installing ohmyzsh
 
 I know you haven't heard from me for a while, but I just have been really busy with some career changes, will definitely right about them.
 
