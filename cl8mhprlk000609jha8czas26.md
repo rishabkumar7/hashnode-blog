@@ -1,4 +1,4 @@
-## How did I become a DevOps Engineer
+# How did I become a DevOps Engineer
 
 Hey friends 👋
 
