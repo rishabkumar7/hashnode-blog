@@ -1,4 +1,4 @@
-## How I passed AWS Solutions Architect Associate
+# How I passed AWS Solutions Architect Associate
 
 **Tick tock. Tick tock.🕐**
 
