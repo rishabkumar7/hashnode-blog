@@ -1,4 +1,4 @@
-## Host your Discord Bot on EC2 instance(AWS) 🤖
+# Host your Discord Bot on EC2 instance(AWS) 🤖
 
 
 Hey Everyone,
