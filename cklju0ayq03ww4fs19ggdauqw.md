@@ -108,6 +108,6 @@ Now let's get to the the cli commands.
 * `git reset <file-name>` command unstages the file, but it preserves the file contents
     
 
-The PDF version of the same is available [here](https://cheatography.com/rishabkumar7/cheat-sheets/git-cli/pdf/)
+The PDF version of the same is available [here](https://www.buymeacoffee.com/rishabincloud/e/121186).
 
 Hope this is helpful, and if you have any concerns or feedback feel free to reach out on [Twitter](https://twitter.com/rishabk7), my dms are open 🙂.
