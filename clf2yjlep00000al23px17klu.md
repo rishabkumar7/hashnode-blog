@@ -79,57 +79,103 @@ We have the AWS CLI configured now to work with out AWS account. Let's go over t
 
 ### Keypairs
 
-list all keypairs
+list all keypairs:
 
 `aws ec2 describe-key-pairs`
 
-create a keypair
+create a keypair:
 
 `aws ec2 create-key-pair --key-name --output text`
 
-create a new local private/public keypair, using RSA 4096-bit
+create a new local private/public keypair, using RSA 4096-bit:
 
 `ssh-keygen -t rsa -b 4096`
 
-import an existing keypair
+import an existing keypair:
 
 `aws ec2 import-key-pair --key-name keyname_test --public-key-material file:///home/rkumar/id_rsa.pub`
 
-delete a keypair
+delete a keypair:
 
 `aws ec2 delete-key-pair --key-name`
 
-### Security Groups:
+### Images
 
-list all security groups
+list all private AMI's, ImageId and Name tags:
+
+```bash
+aws ec2 describe-images --filter "Name=is-public,Values=false" --query 'Images[].[ImageId, Name]' --output text
+```
+
+delete an AMI, by ImageId:
+
+`aws ec2 deregister-image --image-id ami-00000000`
+
+### Instances
+
+list all instances (running, and not running):
+
+`aws ec2 describe-instances`
+
+list all instances running:
+
+`aws ec2 describe-instances --filters Name=instance-state-name,Values=running`
+
+create a new instance:
+
+```bash
+aws ec2 run-instances --image-id ami-a0b1234 --instance-type t2.micro --security-group-ids sg-00000000 --dry-run
+```
+
+stop an instance:
+
+`aws ec2 terminate-instances --instance-ids <instance_id>`
+
+list status of all instances:
+
+`aws ec2 describe-instance-status`
+
+list status of a specific instance:
+
+`aws ec2 describe-instance-status --instance-ids <instance_id>`
+
+list all running instance, Name tag and Public IP Address:
+
+```bash
+aws ec2 describe-instances --filters Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress, Tags[?Key==Name].Value | [0] ]' --output text
+```
+
+### Security Groups
+
+list all security groups:
 
 `aws ec2 describe-security-groups`
 
-create a security group
+create a security group:
 
 `aws ec2 create-security-group --vpc-id vpc-1a2b3c4d --group-name web-access --description "web access"`
 
-list details about a securty group
+list details about a securty group:
 
 `aws ec2 describe-security-groups --group-id sg-0000000`
 
-open port 80, for everyone
+open port 80, for everyone:
 
 `aws ec2 authorize-security-group-ingress --group-id sg-0000000 --protocol tcp --port 80 --cidr 0.0.0.0/24`
 
-get my public ip
+get my public ip:
 
 `my_ipaddress=$(dig +short` [`myip.opendns.com`](http://myip.opendns.com) `@`[`resolver1.opendns.com`](http://resolver1.opendns.com)`); echo $my_ipaddress`
 
-open port 22, just for my ip
+open port 22, just for my ip:
 
 `aws ec2 authorize-security-group-ingress --group-id sg-0000000 --protocol tcp --port 80 --cidr $my_ipaddress/24`
 
-remove a firewall rule from a group
+remove a firewall rule from a group:
 
 `aws ec2 revoke-security-group-ingress --group-id sg-0000000 --protocol tcp --port 80 --cidr 0.0.0.0/24`
 
-delete a security group
+delete a security group:
 
 `aws ec2 delete-security-group --group-id sg-00000000`
 
@@ -139,47 +185,47 @@ delete a security group
 
 ### Users
 
-list all user's info
+list all user's info:
 
 `aws iam list-users`
 
-list all user's usernames
+list all user's usernames:
 
 `aws iam list-users --output text | cut -f 6`
 
-list current user's info
+list current user's info:
 
 `aws iam get-user`
 
-list current user's access keys
+list current user's access keys:
 
 `aws iam list-access-keys`
 
-crate new user
+crate new user:
 
 ```bash
 aws iam create-user --user-name UserName
 ```
 
-create multiple new users, from a file
+create multiple new users, from a file:
 
 ```bash
 allUsers=$(cat ./user-names.txt) for userName in $allUsers; do aws iam create-user --user-name $userName done
 ```
 
-list all users
+list all users:
 
-\`aws iam list-users --no-paginate\`
+`aws iam list-users --no-paginate`
 
-get a specific user's info
+get a specific user's info:
 
 `aws iam get-user --user-name UserName`
 
-delete one user
+delete one user:
 
 `aws iam delete-user --user-name UserName`
 
-delete all users
+delete all users:
 
 ```bash
 allUsers=$(aws iam list-users --output text | cut -f 6);
@@ -189,87 +235,87 @@ allUsers=$(cat ./user-names.txt) for userName in $allUsers; do aws iam delete-us
 
 ### Access Keys
 
-list all access keys
+list all access keys:
 
 `aws iam list-access-keys`
 
-list access keys of a specific user
+list access keys of a specific user:
 
 `aws iam list-access-keys --user-name UserName`
 
-create a new access key
+create a new access key:
 
 `aws iam create-access-key --user-name UserName --output text | tee UserName.txt`
 
-list last access time of an access key
+list last access time of an access key:
 
 `aws iam get-access-key-last-used --access-key-id AKSZZRR7RKZY4EXAMPLE`
 
-deactivate an access key
+deactivate an access key:
 
 `aws iam update-access-key --access-key-id AKIZNAA7RKZY4EXAMPLE --status Inactive --user-name UserName`
 
-delete an access key
+delete an access key:
 
 `aws iam delete-access-key --access-key-id AKIZNAA7RKZY4EXAMPLE --user-name UserName`
 
 ### Group and Policies
 
-list all groups
+list all groups:
 
 `aws iam list-groups`
 
-create a group
+create a group:
 
 `aws iam create-group --group-name GroupName`
 
-delete a group
+delete a group:
 
 `aws iam delete-group --group-name GroupName`
 
-list all policies
+list all policies:
 
 `aws iam list-policies`
 
-get a specific policy
+get a specific policy:
 
 `aws iam get-policy --policy-arn`
 
-list all users, groups, and roles, for a given policy
+list all users, groups, and roles, for a given policy:
 
 `aws iam list-entities-for-policy --policy-arn`
 
-list policies, for a given group
+list policies, for a given group:
 
 `aws iam list-attached-group-policies --group-name GroupName`
 
-add a policy to a group
+add a policy to a group:
 
 ```bash
 aws iam attach-group-policy --group-name GroupName --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
 ```
 
-add a user to a group
+add a user to a group:
 
 `aws iam add-user-to-group --group-name GroupName --user-name UserName`
 
-list users, for a given group
+list users, for a given group:
 
 `aws iam get-group --group-name GroupName`
 
-list groups, for a given user
+list groups, for a given user:
 
 `aws iam list-groups-for-user --user-name UserName`
 
-remove a user from a group
+remove a user from a group:
 
 `aws iam remove-user-from-group --group-name GroupName --user-name UserName`
 
-remove a policy from a group
+remove a policy from a group:
 
 `aws iam detach-group-policy --group-name GroupName --policy-arn arn:aws:iam::aws:policy/AdministratorAccess`
 
-delete a group
+delete a group:
 
 `aws iam delete-group --group-name GroupName`
 
@@ -277,39 +323,39 @@ delete a group
 
 ## AWS S3
 
-list buckets
+list buckets:
 
 `aws s3 ls`
 
-list bucket content
+list bucket content:
 
 `aws s3 ls s3://<bucketName>`
 
-make bucket
+make bucket:
 
 `aws s3 mb s3://<bucketName>`
 
-remove empty bucket
+remove empty bucket:
 
 `aws s3 rb s3://<bucketName>`
 
-copy to bucket
+copy to bucket:
 
 `aws s3 cp <object> s3://<bucketName>`
 
-copy from bucket
+copy from bucket:
 
 `aws s3 cp s3://<bucketName>/<object> <destination>`
 
-move object
+move object:
 
 `aws s3 mv s3://<bucketName>/<object> <destination>`
 
-sync objects
+sync objects:
 
 `aws s3 sync <local> s3://<bucketName>`
 
-removed objects
+removed objects:
 
 `aws s3 rm s3://<bucketName>/<object>`
 
@@ -318,4 +364,4 @@ removed objects
 Hope you liked this post, feel free to reach out to me on [Twitter](https://twitter.com/rishabk7) or [LinkedIn](https://linkedin.com/in/rishabkumar7).  
 Happy Coding!
 
-<iframe src="https://giphy.com/embed/2IudUHdI075HL02Pkk" width="480" height="360" class="giphy-embed"></iframe>
+<iframe src="https://giphy.com/embed/2IudUHdI075HL02Pkk" width="100%" height="100%" style="position:absolute" class="giphy-embed"></iframe>
