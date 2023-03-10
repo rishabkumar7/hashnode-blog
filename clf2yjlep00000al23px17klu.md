@@ -363,5 +363,3 @@ removed objects:
 
 Hope you liked this post, feel free to reach out to me on [Twitter](https://twitter.com/rishabk7) or [LinkedIn](https://linkedin.com/in/rishabkumar7).  
 Happy Coding!
-
-<iframe src="https://giphy.com/embed/2IudUHdI075HL02Pkk" width="100%" height="100%" style="position:absolute" class="giphy-embed"></iframe>
