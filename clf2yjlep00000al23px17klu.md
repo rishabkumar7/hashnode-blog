@@ -2,7 +2,7 @@
 title: "AWS CLI Cheat Sheet: Quick Reference Guide for Cloud Developers"
 datePublished: Fri Mar 10 2023 19:55:34 GMT+0000 (Coordinated Universal Time)
 cuid: clf2yjlep00000al23px17klu
-slug: aws-cli-cheat-sheet-quick-reference-guide-for-cloud-developers
+slug: aws-cli-cheat-sheet
 cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1678381862550/f02c0cf7-7561-4692-a762-da18107a6599.jpeg
 tags: cloud, aws, cloud-computing, command-line, cli
 
