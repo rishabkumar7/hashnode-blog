@@ -361,5 +361,8 @@ removed objects:
 
 ---
 
+You can download the PDF verision of the AWS CLI cheat-sheets here:
+- [AWS EC2](https://www.buymeacoffee.com/rishabincloud/e/122221)
+
 Hope you liked this post, feel free to reach out to me on [Twitter](https://twitter.com/rishabk7) or [LinkedIn](https://linkedin.com/in/rishabkumar7).  
 Happy Coding!
