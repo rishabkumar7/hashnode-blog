@@ -5,7 +5,7 @@ seoDescription: "How I Passed the Microsoft Azure AZ-400 DevOps Engineer Expert 
 datePublished: Mon May 08 2023 19:01:14 GMT+0000 (Coordinated Universal Time)
 cuid: clhf7kz35000409ic7sd2ge5y
 slug: how-i-passed-azure-az-400-devops-engineer-exam
-cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1683564045910/c362345d-0ec2-4fa4-af4f-1978e8b44f36.png
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1683576736791/4cd68d52-2280-4b52-bc7d-b2587efb200b.png
 tags: cloud, devops, certification
 
 ---
