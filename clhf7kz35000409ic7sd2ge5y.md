@@ -1,7 +1,7 @@
 ---
 title: "How I Passed the Microsoft Azure AZ-400 DevOps Engineer Expert Exam"
 seoTitle: "How I Passed the Microsoft Azure AZ-400 DevOps Engineer Expert Exam"
-seoDescription: "How I Passed the Microsoft Azure AZ-400 DevOps Engineer Expert exam without any preparation and my exam experience"
+seoDescription: "I Passed the Microsoft Azure AZ-400 DevOps Engineer Expert exam without any preparation and here is my exam experience"
 datePublished: Mon May 08 2023 19:01:14 GMT+0000 (Coordinated Universal Time)
 cuid: clhf7kz35000409ic7sd2ge5y
 slug: how-i-passed-azure-az-400-devops-engineer-exam
@@ -61,4 +61,4 @@ If you are a video person, I also have a YouTube video talking about my experien
 
 %[https://youtu.be/QCFChF-V24s] 
 
-In conclusion, passing the Microsoft Azure AZ-400 DevOps Engineer Expert exam requires a good understanding of Azure services and DevOps practices. With proper preparation and practice, anyone can pass the exam and earn the certification. If you have any questions about the exam or the certification, feel free to leave a comment below.
+In conclusion, passing the Microsoft Azure AZ-400 DevOps Engineer Expert exam requires a good understanding of Azure services and DevOps practices. With proper preparation and practice, anyone can pass the exam and earn the certification. If you have any questions about the exam or the certification, feel free to reach out to me on [Twitter](http://twitter.com/rishabk7) or [LinkedIn.](https://linkedin.com/in/rishabkumar7)
