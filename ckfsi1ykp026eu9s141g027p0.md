@@ -1,4 +1,12 @@
-# How I passed the Terraform Associate Certificate after failing on the first attempt...
+---
+title: "How I passed the Terraform Associate Certificate after failing on the first attempt"
+datePublished: Fri Oct 02 2020 17:06:34 GMT+0000 (Coordinated Universal Time)
+cuid: ckfsi1ykp026eu9s141g027p0
+slug: how-i-passed-the-terraform-associate-certificate-after-failing-on-the-first-attempt
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1684173381888/90f0fe8d-f3ba-4f4d-8cec-1983af339c0d.png
+tags: code, infrastructure, career, terraform, certification
+
+---
 
 ## My month of September at Glance:
 
