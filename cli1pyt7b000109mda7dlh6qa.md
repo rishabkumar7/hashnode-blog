@@ -23,6 +23,8 @@ Having worked in cloud computing for about two and a half years, with prior expe
 
 I dedicated around 25-30 days to preparing for the exam and was able to pass it successfully. In this post, I'll share some of the resources that helped me along the way.
 
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1684934434534/a70b98f2-d481-46ca-97fc-721bcf526ce1.png align="center")
+
 ## Resources That Helped Me
 
 ### Official Google Resources
