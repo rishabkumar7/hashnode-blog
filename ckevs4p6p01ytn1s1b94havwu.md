@@ -1,4 +1,12 @@
-# How I got AWS Certified SysOps Administrator in 2 weeks ☁
+---
+title: "How I passed AWS Certified SysOps Administrator in 2 weeks"
+datePublished: Wed Sep 09 2020 19:32:06 GMT+0000 (Coordinated Universal Time)
+cuid: ckevs4p6p01ytn1s1b94havwu
+slug: how-i-passed-aws-certified-sysops-administrator-in-2-weeks
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1685045469437/b2b4162e-6394-4d91-98ac-e0e2cd9dada8.png
+tags: cloud, aws, cloud-computing, certification
+
+---
 
 It's been a few months when I got my first AWS Associate Certificate. And I wanted to get my last Associate certificate for AWS before I got distracted by some other technology. Since the start of the pandemic, I took the opportunity to utilize my extra time to get some certifications. 
 
