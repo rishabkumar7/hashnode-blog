@@ -1,4 +1,15 @@
-# How to set up your own VPN Client in 15 mins 💻
+---
+title: "How to set up your own VPN Client in 15 minutes"
+seoTitle: "How to setup your own VPN quickly"
+seoDescription: "Setup your own VPN client in 15 minutes"
+datePublished: Tue Jul 21 2020 01:16:47 GMT+0000 (Coordinated Universal Time)
+cuid: ckdceeqhg03ev66s1a8mh0itn
+slug: how-to-set-up-your-own-vpn-client
+canonical: https://blog.rishabkumar.com/how-to-set-up-your-own-vpn-client-in-15-mins-%F0%9F%92%BB
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1596331190571/YBEjrJANj.webp
+tags: linux, vpn
+
+---
 
 I recently set up a VPN client for personal use by using a VM and OpenVPN.
 
