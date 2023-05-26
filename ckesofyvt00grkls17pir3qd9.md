@@ -1,25 +1,45 @@
-# How I Built a Resume API with JavaScript and Azure Functions
+---
+title: "How I Built a Resume API with JavaScript and Azure Functions"
+datePublished: Sun Sep 06 2020 16:04:57 GMT+0000 (Coordinated Universal Time)
+cuid: ckesofyvt00grkls17pir3qd9
+slug: how-i-built-a-resume-api-with-javascript-and-azure-functions
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1685114308976/3d26eace-201b-45a7-b02f-17c77741df03.png
+tags: cloud, javascript, azure, apis, cloud-computing
 
-I've been inspired by [the Cloud Resume Challenge by Forest Brazeal](https://forrestbrazeal.com/2020/04/23/the-cloud-resume-challenge/) to build more stuff in the cloud.  I wanted to build something simple to continue my Cloud journey. I decided to build an open-source REST API for my JSON-based standard format resume. I'm using JavaScript and Azure Functions.
+---
+
+I've been inspired by [the Cloud Resume Challenge by Forest Brazeal](https://forrestbrazeal.com/2020/04/23/the-cloud-resume-challenge/) to build more stuff in the cloud. I wanted to build something simple to continue my Cloud journey. I decided to build an open-source REST API for my JSON-based standard format resume. I'm using JavaScript and Azure Functions.
 
 ## Demo
+
 You can curl the REST API to view my resume
 
 `curl -L https://myapphttp.azurewebsites.net/resume`
 
 ## Setup
-- An Azure account with an active subscription. Create an account for free.
-- The Azure Functions Core Tools version 2.7.1846 or a later 2.x version.
-- The Azure CLI version 2.4 or later.
-- Node.js, Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
+
+* An Azure account with an active subscription. Create an account for free.
+    
+* The Azure Functions Core Tools version 2.7.1846 or a later 2.x version.
+    
+* The Azure CLI version 2.4 or later.
+    
+* Node.js, Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
+    
 
 ## Prerequisite check
-- In a terminal or command window, run func --version to check that the Azure Functions Core Tools are version 2.7.1846 or later.
-- Run az --version to check that the Azure CLI version is 2.0.76 or later.
-- Run az login to sign in to Azure and verify an active subscription.
+
+* In a terminal or command window, run func --version to check that the Azure Functions Core Tools are version 2.7.1846 or later.
+    
+* Run az --version to check that the Azure CLI version is 2.0.76 or later.
+    
+* Run az login to sign in to Azure and verify an active subscription.
+    
 
 ## Creating your Resume in JSON
+
 I copied the [JSON-based standard format resume schema](https://jsonresume.org/schema/) that I would edit in my info. After I was done editing that JSON, I ended up with this.
+
 ```JSON
 {
         "basics": {
@@ -180,23 +200,16 @@ Add a function to your project by using the following command, where the --name 
 ### index.js
 index.js exports a function that's triggered according to the configuration in function.json.
 ```
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
 
-    const name = (req.query.name || (req.body && req.body.name));
-    const responseMessage = name
-        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
+module.exports = async function (context, req) { context.log('JavaScript HTTP trigger function processed a request.');
 
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: responseMessage
-    };
-}```
+const name = (req.query.name || (req.body && req.body.name)); const responseMessage = name ? "Hello, " + name + ". This HTTP triggered function executed successfully." : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
+
+context.res = { // status: 200, /\* Defaults to 200 \*/ body: responseMessage }; }\`\`\`
 
 Now we will edit the index.js so that it responds with our JSON resume. We will have our resume JSON in the jsonData as followings:
 
-```
+```plaintext
 module.exports = function(context, req) {
     jsonData = {
         "basics": {
@@ -341,10 +354,12 @@ module.exports = function(context, req) {
 };
 ```
 
-For an HTTP trigger, the function receives request data in the variable req as defined in function.json. The return object, defined as $return in function.json, is the response. 
+For an HTTP trigger, the function receives request data in the variable req as defined in function.json. The return object, defined as $return in function.json, is the response.
 
 ### function.json
+
 function.json is a configuration file that defines the input and output bindings for the function, including the trigger type.
+
 ```JSON
 {
     "bindings": [
@@ -374,23 +389,22 @@ Run your function by starting the local Azure Functions runtime host from the Lo
 `func start`
 Toward the end of the output, the following lines should appear:
 ```
+
 ...
 
-Now listening on: http://0.0.0.0:7071
-Application started. Press Ctrl+C to shut down.
+Now listening on: http://0.0.0.0:7071 Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
-        HttpExample: [GET,POST] http://localhost:7071/api/resume
-...```
+HttpExample: \[GET,POST\] http://localhost:7071/api/resume ...\`\`\`
 
 Copy the URL of your resume function from this output to a browser, the full URL like http://localhost:7071/api/resume. The browser should display a message like :
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597156637861/PaUYjWyJo.png)
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597156637861/PaUYjWyJo.png align="left")
 
-In order to get rid of the `/api/` in the `http://localhost:7071/api/resume/`, you can do the following in the `host.json` file:
-Add the routePrefix property:
-```
+In order to get rid of the `/api/` in the `http://localhost:7071/api/resume/`, you can do the following in the `host.json` file: Add the routePrefix property:
+
+```plaintext
   "extensions": {
     "http": {
         "routePrefix": ""
@@ -400,7 +414,7 @@ Add the routePrefix property:
 
 So the complete `host.json` should look something like:
 
-```JSON
+````JSON
 {
   "version": "2.0",
   "logging": {
@@ -476,21 +490,19 @@ Syncing triggers...
 Functions in myapphttp:
     resume - [httpTrigger]
         Invoke url: https://myapphttp.azurewebsites.net/resume
-```
+````
 
 ## Invoke the function on Azure
+
 Because your function uses an HTTP trigger, you invoke it by making an HTTP request to its URL in the browser or with a tool like curl. In both instances, the code URL parameter is your unique function key that authorizes the invocation of your function endpoint.
 
 Copy the complete Invoke URL shown in the output of the publish command into a browser address bar, . The browser should display a similar output as when you ran the function locally.
 
-
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597157306204/qC8r1vOGK.png)
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597157306204/qC8r1vOGK.png align="left")
 
 Curl
 
-
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597157336499/ILE9Qo5_l.png)
-
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597157336499/ILE9Qo5_l.png align="left")
 
 We did it 😍, now we have our Resume up and running, we can set custom domains in the Azure UI.
 
@@ -498,32 +510,31 @@ We did it 😍, now we have our Resume up and running, we can set custom domains
 
 If you go into the Azure Portal and navigate to your App Service:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597158520980/4RvxmrLQR.png)
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597158520980/4RvxmrLQR.png align="left")
 
-On the left-hand side, you will see the 'Custom Domains` setting under the 'Settings' category
+On the left-hand side, you will see the 'Custom Domains\` setting under the 'Settings' category
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597158503116/_MDhiiLns.png)
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597158503116/_MDhiiLns.png align="left")
 
 You will see an option to add the custom domain.
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597158659450/VvAGr90md.png)
- 
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597158659450/VvAGr90md.png align="left")
+
 And if you don't have any domains, you will also see an option to buy a domain.
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597158701974/wuu2vang4.png)
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597158701974/wuu2vang4.png align="left")
 
 You can go ahead and buy a domain by filling out the details.
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597158758253/fml9L1kXG.png)
- Once, you have your custom domain, you can link it to your App:
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597158758253/fml9L1kXG.png align="left")
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597158881186/i30C0Chog.png)
+Once, you have your custom domain, you can link it to your App:
 
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597158881186/i30C0Chog.png align="left")
 
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597159199121/FuuLoacZV.png align="left")
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597159199121/FuuLoacZV.png)
-
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597158920170/q54WHpsEz.png)
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597158920170/q54WHpsEz.png align="left")
 
 You can also add SSL binding to your domain, and access it over `https`
 
