@@ -175,10 +175,13 @@ I copied the [JSON-based standard format resume schema](https://jsonresume.org/s
             "Court"
           ]
         }]
-      }```
+      }
+```
+
 Save this JSON resume we will need it later.
 
 ## Create a local function project
+
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
 Run the func init command, as follows, to create a functions project in a folder named LocalFunctionProj with the specified runtime:
@@ -198,18 +201,20 @@ Add a function to your project by using the following command, where the --name 
 `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named function.json.
 
 ### index.js
-index.js exports a function that's triggered according to the configuration in function.json.
-```
 
+`index.js` exports a function that's triggered according to the configuration in `function.json`.
+
+```javascript
 module.exports = async function (context, req) { context.log('JavaScript HTTP trigger function processed a request.');
 
 const name = (req.query.name || (req.body && req.body.name)); const responseMessage = name ? "Hello, " + name + ". This HTTP triggered function executed successfully." : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
 
-context.res = { // status: 200, /\* Defaults to 200 \*/ body: responseMessage }; }\`\`\`
+context.res = { status: 200, /* Defaults to 200 */ body: responseMessage }; }
+```
 
 Now we will edit the index.js so that it responds with our JSON resume. We will have our resume JSON in the jsonData as followings:
 
-```plaintext
+```javascript
 module.exports = function(context, req) {
     jsonData = {
         "basics": {
@@ -354,7 +359,7 @@ module.exports = function(context, req) {
 };
 ```
 
-For an HTTP trigger, the function receives request data in the variable req as defined in function.json. The return object, defined as $return in function.json, is the response.
+For an HTTP trigger, the function receives request data in the variable req as defined in function.json. The return object, defined as $return in `function.json`, is the response.
 
 ### function.json
 
@@ -379,26 +384,28 @@ function.json is a configuration file that defines the input and output bindings
             "name": "res"
         }
     ]
-}```
-Note: By default the `authLevel` is set to function, we will change that to anonymous so that anyone can access our Resume.
-
-Each binding requires a direction, a type, and a unique name. The HTTP trigger has an input binding of type httpTrigger and output binding of type http.
-
-## Run the function locally
-Run your function by starting the local Azure Functions runtime host from the LocalFunctionProj folder:
-`func start`
-Toward the end of the output, the following lines should appear:
+}
 ```
 
+Note: By default the `authLevel` is set to function, we will change that to anonymous so that anyone can access our Resume.
+
+Each binding requires a direction, a type, and a unique name. The HTTP trigger has an input binding of type `httpTrigger` and output binding of type `http`.
+
+## Run the function locally
+
+Run your function by starting the local Azure Functions runtime host from the LocalFunctionProj folder: `func start` Toward the end of the output, the following lines should appear:
+
+```bash
 ...
 
 Now listening on: http://0.0.0.0:7071 Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
-HttpExample: \[GET,POST\] http://localhost:7071/api/resume ...\`\`\`
+HttpExample: [GET,POST] http://localhost:7071/api/resume ...
+```
 
-Copy the URL of your resume function from this output to a browser, the full URL like http://localhost:7071/api/resume. The browser should display a message like :
+Copy the URL of your resume function from this output to a browser, the full URL like `http://localhost:7071/api/resume`. The browser should display a message like :
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597156637861/PaUYjWyJo.png align="left")
 
@@ -414,7 +421,7 @@ In order to get rid of the `/api/` in the `http://localhost:7071/api/resume/`, y
 
 So the complete `host.json` should look something like:
 
-````JSON
+```JSON
 {
   "version": "2.0",
   "logging": {
@@ -434,18 +441,21 @@ So the complete `host.json` should look something like:
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[1.*, 2.0.0)"
   }
-}```
- 
+}
+```
 
-The terminal in which you started your project also shows log output as you make requests.
-When you're ready, use Ctrl+C and choose y to stop the functions host.
+The terminal in which you started your project also shows log output as you make requests. When you're ready, use Ctrl+C and choose y to stop the functions host.
 
 ## Create supporting Azure resources for your function
+
 Before you can deploy your function code to Azure, you need to create three resources:
 
-- A resource group, which is a logical container for related resources.
-- A Storage account, which maintains state and other information about your projects.
-- A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
+* A resource group, which is a logical container for related resources.
+    
+* A Storage account, which maintains state and other information about your projects.
+    
+* A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
+    
 
 Use the following Azure CLI commands to create these items. Each command provides JSON output upon completion.
 
@@ -465,10 +475,10 @@ The storage account incurs only a few cents (USD) for this quickstart.
 
 Create the function app using the [az functionapp create](https://docs.microsoft.com/en-us/cli/azure/functionapp#az-functionapp-create) command. In the following example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
 
-`az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime node --runtime-version 10 --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
-`
+`az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime node --runtime-version 10 --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>`
 
 ## Deploy the function project to Azure
+
 With the necessary resources in place, you're now ready to deploy your local functions project to the function app in Azure by using the [func azure functionapp publish](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local#project-file-deployment) command. In the following example, replace `<APP_NAME>` with the name of your app.
 
 `func azure functionapp publish <APP_NAME>`
@@ -476,7 +486,8 @@ With the necessary resources in place, you're now ready to deploy your local fun
 If you see the error, "Can't find app with name ...", wait a few seconds and try again, as Azure may not have fully initialized the app after the previous `az functionapp create` command.
 
 The publish command shows results similar to the following output (truncated for simplicity):
-```...
+
+```bash
 
 Getting site publishing info...
 Creating archive for current directory...
@@ -490,7 +501,7 @@ Syncing triggers...
 Functions in myapphttp:
     resume - [httpTrigger]
         Invoke url: https://myapphttp.azurewebsites.net/resume
-````
+```
 
 ## Invoke the function on Azure
 
@@ -500,7 +511,7 @@ Copy the complete Invoke URL shown in the output of the publish command into a
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597157306204/qC8r1vOGK.png align="left")
 
-Curl
+**Curl**
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1597157336499/ILE9Qo5_l.png align="left")
 
@@ -540,6 +551,6 @@ You can also add SSL binding to your domain, and access it over `https`
 
 Since I didn't add any bindings, my resume is available at `http://rishabcloud.com/resume`
 
-Hope you guys enjoyed this tutorial, I will be doing a YoutTube video too for this challenge, here is [my channel.](https://www.youtube.com/c/rishabkumar7)
+Hope you guys enjoyed this tutorial, I will be doing a YouTube video too for this challenge, here is [my channel.](https://www.youtube.com/c/rishabkumar7)
 
 You can also follow me on [Twitter](https://twitter.com/rishabk7).
