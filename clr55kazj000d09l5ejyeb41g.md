@@ -4,7 +4,7 @@ seoTitle: "Learn This Before Diving into Kubernetes"
 seoDescription: "In this blog, I'll share the essential prerequisites you should master before tackling Kubernetes, ensuring a smoother learning experience."
 datePublished: Mon Jan 08 2024 16:44:05 GMT+0000 (Coordinated Universal Time)
 cuid: clr55kazj000d09l5ejyeb41g
-slug: learn-this-before-diving-into-kubernetes
+slug: learn-this-before-kubernetes
 cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1704731370604/400cd22c-5d3f-48aa-a6b7-7d9aef377dc6.png
 tags: kubernetes, learning, devops, containers
 
