@@ -4,7 +4,7 @@ seoTitle: "Pass the GitHub Foundations Certification Exam"
 seoDescription: "In this article, I share my study guide and resources I used to pass the GitHub Foundations Certification Exam."
 datePublished: Fri Jan 19 2024 15:49:08 GMT+0000 (Coordinated Universal Time)
 cuid: clrktg0hz000409jr0tck7z3c
-slug: how-i-passed-the-github-foundations-certification-exam
+slug: github-foundations-certification-exam
 cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1705638541547/2670bbd7-3e2b-4741-b763-d21f91f27cec.png
 tags: github, git, certification
 
