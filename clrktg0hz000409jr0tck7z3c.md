@@ -89,6 +89,8 @@ Questions and topics that I found challenging were:
 
 There were questions about Enterprise offerings and what authentication methods are supported on each, which I don't have much experience in. So will definitely recommend going over these offerings.
 
+%[https://youtu.be/2-QiORv6wew] 
+
 ---
 
 Hope this helps you with your preparations and I wish you luck if you are sitting the exam soon. I am thinking of taking the GitHub Actions Certification next, will let you know if I do take and will share my experience. You can find me on X/Twitter [@rishabincloud](https://x.com/rishabincloud) or on [LinkedIn](https://linkedin.com/in/rishabkumar7) if you have any questions.
