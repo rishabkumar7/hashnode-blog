@@ -1,5 +1,5 @@
 ---
-title: "Should you include .terraform.lock.hcl in .gitignore ?"
+title: "Should you include .terraform.lock.hcl in .gitignore?"
 datePublished: Sun Feb 11 2024 16:34:14 GMT+0000 (Coordinated Universal Time)
 cuid: clshq6lq4000109ju61pebt3e
 slug: terraform-lock-hcl-to-gitignore-or-commit
