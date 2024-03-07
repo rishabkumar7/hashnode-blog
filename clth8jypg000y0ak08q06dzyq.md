@@ -24,7 +24,7 @@ The big question, right? Here's the thing: I didn't use any traditional courses.
     
 * **Hands-On Projects:** This was the MOST important part! Over time, I've built projects on Azure that used the skills on the exam guide. Check out tools like Azure Functions, container apps, and storage accounts.
     
-    %[https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb296d3N3cGg4enB6ejJoaDFzM2NkNGdwbHR1NDE4MHZkOXMwb3VkMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Mah9dFWo1WZX0WM62Q/giphy.gif] 
+    %[https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHc4MzZnbnExbW0xMXlwZ3BtMmxwbWNmbzN1OGo0dXlxdmMyazllYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Mah9dFWo1WZX0WM62Q/giphy.gif] 
     
 
 ## **Important Extras**
