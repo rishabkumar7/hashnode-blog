@@ -1,6 +1,6 @@
 ---
 title: "Early Mornings, Late Ambitions: Building a Tech Career on Discipline"
-seoTitle: "Building Tech Through Discipline"
+seoTitle: "Building Tech Career Through Discipline"
 seoDescription: "Learn how discipline and intention can build a successful tech career, even with a full-time job. Start small to achieve big ambitions"
 datePublished: Mon Apr 07 2025 04:23:52 GMT+0000 (Coordinated Universal Time)
 cuid: cm96kgyx0000a09kv99h4ft9n
